@@ -1,0 +1,1065 @@
+/* Stili di base */
+
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #e0e0e0;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/*█████ navbar █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████*/
+
+
+
+/* █████ Navbar █████ */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Spazio tra sezioni */
+    position: relative;
+    /* Assicura il posizionamento corretto */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+
+}
+
+.linea {
+    margin-top: 25px;
+    
+    /* Aggiungi un margine sopra la linea */
+}
+
+.logo img {
+    display: block;
+    margin-top: 10px;
+
+}
+
+.nav-images-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+    /* Spinge gli elementi a destra */
+}
+
+/* Sezione sinistra con il menu */
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    left: 20px;
+    
+    /* Mantiene la posizione della sezione sinistra */
+}
+
+/* █████ Dropdown █████ */
+.dropdown {
+    position: relative;
+}
+
+/* █████ Sezione matematici (Hover più scuro) █████ */
+.dropdown-item {
+    text-align: center;
+}
+
+/* Stile del menu a tendina (inizialmente nascosto) */
+.dropdown-content {
+    border: 1px solid rgba(209, 209, 209, 0.575);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    margin-left: -12px;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 1000;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    visibility: hidden;
+    padding: 5px 0;
+}
+
+/* Contenitore delle voci della tendina */
+.dropdown-item {
+    padding: 0;
+    text-align: center;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 8px 15px;
+    display: block;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    font-size: 14px;
+}
+
+/* Effetto hover sui matematici */
+.dropdown-content a:hover {
+    background-color: #e0e0e0;
+}
+
+.divider {
+    height: 1px;
+    background-color: lightgray;
+    width: 90%;
+    margin: 4px auto;
+}
+
+.dropdown:focus-within .dropdown-content,
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    transform: scaleY(1);
+    visibility: visible;
+}
+
+/* █████ Bottone con bordo grigio chiaro █████ */
+.dropdown-btn {
+    background: white;
+    border: 2px solid rgba(158, 158, 158, 0.575);
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 20px;
+    transition: border-color 0.2s ease-in-out;
+    position: relative;
+}
+
+/* Effetto hover sul bottone */
+.dropdown-btn:hover {
+    border-color: #b0b0b0;
+}
+
+/* Icona nel bottone */
+.dropdown-btn::after {
+    content: "<";
+    font-size: 18px;
+    color: gray;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Rotazione dell'icona quando il dropdown è attivo */
+.dropdown:focus-within .dropdown-btn::after,
+.dropdown:hover .dropdown-btn::after {
+    transform: rotate(-90deg);
+}
+
+/* █████ Struttura per cambiare il testo in icona █████ */
+.dropdown-btn .btn-text {
+    display: inline;
+}
+
+.dropdown-btn .btn-icon {
+    display: none;
+    width: 30px;
+    height: 30px;
+    background-image: url('Img/pgreco.png'); /* Percorso dell'immagine */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* █████ Media Query per tablet e smartphone █████ */
+@media screen and (max-width: 768px) {
+    .dropdown-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Nasconde il testo "Matematici" su schermi piccoli */
+    .dropdown-btn .btn-text {
+        display: none;
+    }
+
+    /* Mostra l'icona del Pi greco */
+    .dropdown-btn .btn-icon {
+        display: block;
+    }
+
+    .dropdown-btn::after {
+        content: ""; /* Nasconde l'icona "<" */
+    }
+}
+
+
+
+/* █████ Logo al centro █████ */
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+
+
+/* █████ Sezione destra con la barra di ricerca e le bandiere █████ */
+.nav-images {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: absolute;
+    right: 20px;
+    /* Mantiene la posizione della sezione destra */
+}
+
+/* Barra di ricerca */
+.search-container {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+}
+
+.search-input {
+    flex: 1;
+    min-width: 100px;
+    /* Ridotto min-width se necessario */
+    max-width: 200px;
+    /* Ridotto max-width per renderla più stretta */
+    padding: 10px;
+    /* Ridotto il padding per renderla più compatta */
+    border-radius: 20px 0 0 20px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.search-button {
+    padding: 7.5px 15px;
+    border-radius: 0 20px 20px 0;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.search-button:hover {
+    background-color: #d4d4d4;
+}
+
+.search-container img {
+    height: 20px;
+}
+
+.search-input,
+.search-button {
+    box-sizing: border-box;
+}
+
+/* █████ Bandiere a destra della barra di ricerca █████ */
+/* █████ Contenitore principale █████ */
+
+.bandiere-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Stile del bottone */
+.bandiere-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    transition: transform 0.2s ease-in-out;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25px;
+    list-style: none;
+}
+
+/* Immagine della bandiera */
+.bandiere-btn img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+/* Effetto hover */
+.bandiere-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Stile della tendina */
+.bandiere-content {
+    position: absolute;
+    background-color: white;
+    min-width: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    left: 0%;
+    transform: translateX(-50%);
+    top: 110%;
+
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Elementi all'interno del dropdown */
+.bandiera-wrapper {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bandiera-wrapper:last-child {
+    border-bottom: none;
+}
+
+.bandiera-wrapper:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+/* Immagini bandiere */
+.bandiere-content img {
+    max-width: 80%;
+    height: auto;
+    display: block;
+}
+
+/* █████ Mostra il menu quando è attivo █████ */
+.bandiere-dropdown:focus-within .bandiere-content,
+.bandiere-dropdown:hover .bandiere-content {
+    opacity: 1;
+    transform: scaleY(1);
+    visibility: visible;
+}
+
+
+
+/* bandiere dropdown*/
+
+/*█████ corpo █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████*/
+
+/* Aggiusta il padding superiore per evitare che il contenuto venga nascosto sotto la navbar */
+main {
+    padding: 5em 1em 1em 1em;
+    /* Aggiunge spazio extra in alto per il contenuto */
+    min-height: 100vh;
+    /* Garantisce che il main occupi l'altezza disponibile */
+    padding-left: 15vh;
+    padding-right: 15vh;
+    box-sizing: border-box;
+
+
+}
+
+.title-section {
+    background-image: url('https://media.istockphoto.com/id/1141668764/vector/illustration-about-mathematics.jpg?s=612x612&w=0&k=20&c=82AmYYr2XS6KNR33itdltWSTqC3oAh72bQbYFI6oqFM=');
+    /* Cambia con l'immagine che vuoi */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px;
+}
+
+/*█████ titolo █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████*/
+
+/*css per il titolo*/
+.SpazioTitolo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    /*il gap non mette nessun spazio tra titolo e sottotitolo */
+
+}
+
+.titolo h1,
+.sottotitolo h2 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    /* Evita spazi extra tra le righe */
+}
+
+.titolo {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin: 0;
+}
+
+.sottotitolo {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #555;
+}
+
+.introduzione {
+
+    font-size: 20px;
+    text-align: center;
+    color: #555;
+    max-width: 700px;
+    margin: 10px auto;
+    font-style: italic;
+
+}
+
+/*css per il titolo*/
+
+
+/*█████ card █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████*/
+
+
+
+/* card */
+/* Contenitore delle card */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 2 card per riga */
+    gap: 40px 80px;
+    /* Spazio tra le card */
+    justify-content: center;
+    /* Centra le card nella griglia */
+    align-items: center;
+    padding: 20px;
+    width: fit-content;
+    /* Imposta la larghezza esatta necessaria */
+    margin: 0 auto;
+    /* Centra il contenitore rispetto alla pagina */
+}
+
+/* Effetto hover sulla card */
+.card:hover {
+    transform: scale(1.05);
+    /* Aumenta leggermente la grandezza */
+    filter: brightness(90%);
+    /* Rende la card più scura */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Stile della card */
+.card {
+    width: 250px;
+    /* Larghezza fissa per uniformità */
+    display: flex;
+    flex-direction: column;
+    /* Disposizione verticale */
+    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+    /* Evita che l'immagine esca fuori */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    background: #e0e0e0;
+    /* Sfondo bianco per contrasto */
+    border: 2px solid gray;
+    /* Contorno grigio */
+    text-decoration: none;
+    color: inherit;
+
+}
+
+/* Stile dell'immagine */
+.card img {
+    width: 100%;
+    /* Occupa tutta la larghezza della card */
+    height: 350px;
+    /* Imposta un'altezza fissa */
+    object-fit: cover;
+    /* Ritaglia l'immagine per riempire il box senza deformarla */
+}
+
+/* Stile del contenitore del testo */
+.card .container {
+    padding: 15px;
+    text-align: center;
+    position: relative;
+}
+
+/* Stile del nome del matematico */
+.card .math-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Stile del pulsante stendardo */
+.favorite-btn {
+    width: 20px;
+    height: 25px;
+    background-color: black;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Cambio colore al click */
+.favorite-btn.active {
+    background-color: gold;
+}
+
+/* css del footer */
+footer {
+    background-color: #1A1A1A;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    /* Rimosso position: fixed */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    /* Spazio equo tra le sezioni */
+    max-width: 1200px;
+    margin: auto;
+}
+
+.box {
+    flex: 1;
+    /* Occupa lo stesso spazio */
+    padding: 10px;
+    text-align: center;
+}
+
+.card .math-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Pulsante a forma di stendardo con punta verso l'alto */
+.favorite-btn {
+    margin-left: auto;
+    /* Spinge il pulsante tutto a destra */
+    width: 35px;
+    height: 40px;
+    background-color: black;
+    clip-path: polygon(10% 0%, 90% 0%, 90% 100%, 50% 85%, 10% 100%);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Icona della stella */
+.star-icon {
+    width: 18px;
+    height: 18px;
+    fill: white;
+    /* Colore iniziale */
+    transition: fill 0.3s ease;
+}
+
+/* Quando il pulsante è attivo (preferito) */
+.favorite-btn.active {
+    background-color: gold;
+}
+
+.favorite-btn.active .star-icon {
+    fill: black;
+}
+
+
+
+
+/*█████ info █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████*/
+
+/* Contenitore generale per testo + immagine */
+.info-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    width: 80%;
+    max-width: 900px;
+    margin: 30px auto;
+    gap: 20px;
+}
+
+/* Contenitore del testo */
+.info-container {
+    flex: 1;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    min-height: 200px;
+    border: 3px solid rgb(233, 233, 233);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Titolo in alto a sinistra */
+.info-title {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Testo dentro il container */
+.info-text {
+    margin-top: 40px;
+    font-size: 18px;
+    text-align: left;
+}
+
+/* Contenitore dell'immagine */
+.image-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 3px solid rgb(233, 233, 233);
+    height: auto;
+}
+
+/* Stile dell'immagine */
+.image-container img {
+    height: 350px;
+    max-width: 250px;
+    border-radius: 18px;
+    object-fit: cover;
+}
+
+.divider1 {
+    width: 100%; /* Occupa tutta la larghezza dei container */
+    max-width: 700px; /* Stessa larghezza massima dei container */
+    height: 2px; /* Linea sottile */
+    background-color: #ccc; /* Grigio chiaro */
+    margin: 20px auto; /* Distanza sopra e sotto, centrata */
+}
+
+/* Media query per tablet (fino a 1024px) */
+@media (max-width: 1024px) {
+    .info-title {
+        font-size: 36px; /* Titolo più piccolo */
+    }
+
+    .info-text {
+        font-size: 16px; /* Testo più piccolo */
+    }
+}
+
+/* Media query per dispositivi mobili (fino a 768px) */
+@media (max-width: 768px) {
+    .info-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-container,
+    .image-container {
+        width: auto;
+    }
+
+    .info-title {
+        font-size: 32px; /* Riduzione ulteriore del titolo */
+        top: 20px; /* Piccola regolazione della posizione */
+        left: 20px;
+    }
+
+    .info-text {
+        font-size: 14px; /* Riduzione ulteriore del testo */
+    }
+
+    .image-container img {
+        height: 350px;
+        max-width: 100%;
+    }
+}
+
+
+
+
+
+
+/*█████ Scheda Contatti █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████*/
+
+.contact-card {
+    width: 90%; /* Adatta la larghezza per schermi piccoli */
+    max-width: 500px; /* Imposta una larghezza massima per schermi più grandi */
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f8f8f8;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto; /* Altezza adattabile */
+    border: 2px solid rgb(165, 165, 165);
+    margin-top: 3px
+}
+
+.contact-card h2 {
+    font-size: 1.8rem; /* Ridimensiona leggermente per schermi piccoli */
+    margin-bottom: 20px;
+}
+
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+.contact-card label {
+    font-weight: bold;
+}
+
+.contact-card input,
+.contact-card textarea {
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+    width: 100%;
+}
+
+.contact-card textarea {
+    height: 150px;
+    resize: none;
+}
+
+#char-counter {
+    font-size: 12px;
+    color: gray;
+    text-align: right;
+    display: block;
+    margin-top: -10px;
+}
+
+.contact-card button {
+    padding: 10px;
+    width: 100%; /* Occupa tutta la larghezza disponibile su dispositivi piccoli */
+    max-width: 200px; /* Imposta una larghezza massima */
+    border-radius: 20px;
+    background-color: white;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: center;
+    margin-top: auto;
+}
+
+.contact-card button:hover {
+    background-color: rgba(177, 177, 177, 0.473);
+}
+
+/* Media query per schermi molto piccoli */
+@media (max-width: 480px) {
+    .contact-card {
+        padding: 20px; /* Riduce il padding per ottimizzare lo spazio */
+    }
+
+    .contact-card h2 {
+        font-size: 1.5rem; /* Riduci dimensione del titolo per schermi molto piccoli */
+    }
+}
+
+
+
+
+/*█████ footer █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████*/
+
+/* Struttura generale */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.content {
+    flex: 1;
+    /* Occupa lo spazio disponibile per spingere il footer in basso */
+}
+
+/* Stile del footer */
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #e0e0e0;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+}
+
+/* Stile link nel footer */
+.footer a {
+    color: #333;
+    /* Grigio scuro */
+    text-decoration: none;
+    /* Rimuove la sottolineatura */
+    transition: color 0.3s ease;
+}
+
+/* Se vuoi cambiare colore al passaggio del mouse */
+.footer a:hover {
+    color: #000000;
+    /* Grigio leggermente più chiaro */
+}
+
+.footer-section {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+}
+
+.footer-section:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10%;
+    bottom: 10%;
+    width: 1px;
+    background-color: rgb(154, 154, 154);
+}
+
+.footer-logo {
+
+    height: 100px;
+}
+
+.footer-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries per dispositivi mobili */
+@media only screen and (max-width: 768px) {
+    header {
+        text-align: center;
+    }
+
+    main {
+        padding-top: 6em;
+        /* Aggiusta il padding superiore per contenere la navbar fissa */
+    }
+
+    .navbar {
+        padding: 0 10px;
+        padding-right: 70px;
+
+    }
+
+    .nav-images img {
+        max-height: 30px;
+    }
+
+    .logo img {
+        max-height: 55px;
+        max-width: 135px;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(1, 1fr);
+        /* 1 card per riga su schermi piccoli */
+    }
+
+    .search-input {
+        display: none;
+        /* Nasconde l'input di ricerca */
+    }
+
+    .search-button {
+        border-radius: 50%;
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-button img {
+        height: 24px;
+        width: 24px;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(1, 1fr);
+        /* 1 card per riga su schermi piccoli */
+    }
+}
+
+
+/* Media Queries per dispositivi molto piccoli */
+@media only screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    main {
+        padding-top: 6em;
+        padding-left: 7vh;
+        padding-right: 7vh;
+        /* Assicurati che il contenuto non sia nascosto sotto la navbar */
+    }
+
+    .navbar {
+        padding: 0 10px;
+        /* Ridotto il padding */
+
+    }
+
+    .card-container {
+        grid-template-columns: repeat(1, 1fr);
+        /* 1 card per riga su schermi piccoli */
+    }
+
+    .nav-images img {
+        max-height: 25px;
+    }
+
+    .logo img {
+        max-height: 40px;
+    }
+
+    .nav-images {
+        flex-wrap: nowrap;
+        overflow: hidden;
+
+        /* Evita che le immagini vengano tagliate */
+    }
+
+    .search-input {
+        display: none;
+        /* Nasconde l'input di ricerca */
+    }
+
+    .search-button {
+        border-radius: 50%;
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-button img {
+        height: 24px;
+        width: 24px;
+    }
+
+    .bandiere-btn img {
+        max-width: 90%;
+        /* Ridotto ulteriormente per schermi piccoli */
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .search-input {
+        flex: none;
+        /* Disabilita il comportamento elastico */
+        width: 60%;
+        /* Occupa il 60% dello schermo */
+        min-width: 120px;
+        /* Impedisce che diventi troppo piccola */
+    }
+}
+
+
+@media only screen and (max-width: 900px){
+
+    .card-container{
+        grid-template-columns: repeat(2,1 fr);
+    }
+}

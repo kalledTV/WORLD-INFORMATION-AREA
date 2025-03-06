@@ -1,0 +1,111 @@
+
+
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Menti Geniali</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json" />
+    <script src="script.js" defer></script> <!-- Aggiunto defer -->
+</head>
+
+<!--██████ navbar ████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ -->
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="left-section">
+                <a href="Page/Preferiti.html">
+                    <img src="Img/Preferiti.png" alt="Immagine Sinistra" style="width:auto; height: 40px;">
+                </a>
+            </div>
+
+            <div class="logo">
+                <img src="img/logoo-nav.png" alt="Logo" style="height: 65px; width: 155px;">
+            </div>
+
+            <div class="nav-images-container">
+                <div class="search-container">
+                    <!-- Campo di ricerca con ID corretto -->
+                    <input type="text" class="search-input" id="searchInput" placeholder="Cerca un matematico..."
+                        onkeyup="searchMathematician()">
+                    <button class="search-button">
+                        <img src="Img/search.png" alt="search">
+                    </button>
+                </div>
+
+                <div class="bandiere-dropdown">
+                    <button class="bandiere-btn">
+                        <img src="Img/icons-lingua.png" alt="">
+                    </button>
+                    <div class="bandiere-content">
+                        <div class="bandiera-wrapper">
+                            <img src="Img/italia.png" alt="Italia">
+                        </div>
+                        <div class="bandiera-wrapper">
+                            <img src="Img/gran-bretagna.png" alt="Gran Bretagna">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="linea">
+            <hr>
+        </div>
+    </header>
+
+<!--██████ CORPO ████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ -->
+
+    <main>
+        <br><br><br>
+        <section>
+            <div class="SpazioTitolo">
+                <div class="titolo">
+                    <h1>Menti Geniali</h1>
+                </div>
+                <div class="sottotitolo">
+                    <h2>Leggende della Matematica</h2>
+                </div>
+            </div>
+        </section>
+        <br><br><br>
+        <div class="introduzione">
+            <p>Un viaggio attraverso alcune delle menti più brillanti della storia. <br>Scopri le loro vite, le scoperte
+                che hanno cambiato il mondo e il loro impatto sulla matematica moderna.</p>
+        </div>
+
+        <br><br>
+
+        <!-- Contenitore per le card -->
+        <div class="card-container" id="cardContainer">
+            <!-- Le card dei matematici saranno inserite dinamicamente da JavaScript -->
+        </div>
+        <br><br>
+    </main>
+    
+<!--██████ footer ████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ -->
+    <footer class="footer">
+        <div class="footer-section">
+            <img src="Img/logoo.PNG" alt="Logo Progetto" class="footer-logo">
+        </div>
+        <div class="footer-section">
+            <h2 style="color: black;" class="footer-title">CHI SIAMO</h2>
+            <a href="Page/info.html">info</a><br>
+            <br><br>
+        </div>
+        <div class="footer-section">
+            <h2 style="color: black;" class="footer-title">CONTATTACI</h2>
+            <a href="Page/contatti.html">contattaci</a><br>
+            <br><br>
+        </div>
+        <div class="footer-section">
+            <h2 style="color: black;" class="footer-title">FONTI</h2>
+            <a href="Page/fonti.html">fonti</a><br>
+            <br><br>
+        </div>
+    </footer>
+</body>
+
+</html>

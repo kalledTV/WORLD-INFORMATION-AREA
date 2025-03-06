@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Menti Geniali</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="manifest" href="../manifest.json" />
+    <script src="../script.js"></script>
+</head>
+
+
+
+<!-- ██████ navbar ████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ -->
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="left-section">
+                <a href="Preferiti.html">
+                    <img src="../Img/Preferiti.png" alt="Immagine Sinistra" style="width:auto; height: 40px;">
+                </a>
+
+                <div class="dropdown">
+                    <button class="nav-button dropdown-btn">
+                        <span class="btn-text">Matematici</span>
+                        <span class="btn-icon"></span>
+                    </button>
+                    <div class="dropdown-content">
+                        <div class="dropdown-item"><a href="mat1.html">Matematico 1</a></div>
+                        <div class="divider"></div> <!-- Linea separatrice -->
+                        <div class="dropdown-item"><a href="mat2.html">Matematico 2</a></div>
+                        <div class="divider"></div> <!-- Linea separatrice -->
+                        <div class="dropdown-item"><a href="mat3.html">Matematico 3</a></div>
+                        <div class="divider"></div> <!-- Linea separatrice -->
+                        <div class="dropdown-item"><a href="mat4.html">Matematico 4</a></div>
+                        <div class="divider"></div> <!-- Linea separatrice -->
+                        <div class="dropdown-item"><a href="mat5.html">Matematico 5</a></div>
+                        <div class="divider"></div> <!-- Linea separatrice -->
+                        <div class="dropdown-item"><a href="mat6.html">Matematico 6</a></div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="logo">
+                <a href="../index.html"><img src="../img/logoo-nav.png" alt="Logo"
+                        style="height: 65px ; width: 155px ;"></a>
+
+            </div>
+
+            <div class="nav-images-container">
+                
+
+                <div class="bandiere-dropdown">
+                    <button class="bandiere-btn">
+                        <img src="../Img/icons-lingua.png" alt="">
+                    </button>
+                    <div class="bandiere-content">
+                        <div class="bandiera-wrapper">
+                            <img src="../Img/italia.png" alt="Italia">
+                        </div>
+                        <div class="bandiera-wrapper">
+                            <img src="../Img/gran-bretagna.png" alt="Gran Bretagna">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="linea">
+            <hr>
+        </div>
+    </header>
+
+<!-- ██████ CONTATTACI ████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ -->
+
+<main>
+
+    <br><br><br><br><br><br>
+    <section class="contact-card">
+        <h2>CONTATTACI</h2>
+        <form id="contact-form" action="../contatti.php" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="La tua email" required>
+
+            <label for="message">Messaggio:</label>
+            <textarea id="message" name="message" placeholder="Scrivi il tuo messaggio..." maxlength="500"
+                oninput="updateCounter(this)"></textarea>
+            <span id="char-counter">0 / 500</span>
+
+            <button type="submit">Invia</button>
+        </form>
+    </section>
+    <br><br>
+
+</main>
+<!-- ████ MESSAGGIO ████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ -->
+
+
+    <script>
+        function updateCounter(textarea) {
+            document.getElementById("char-counter").textContent = textarea.value.length + " / 500";
+        }
+    </script>
+
+
+<!-- ██████ footer ████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ -->
+
+    <footer class="footer">
+        <div class="footer-section">
+            <img src="../Img/logoo.png" alt="Logo Progetto" class="footer-logo">
+        </div>
+        <div class="footer-section">
+            <h2 style="color: black;;" class="footer-title">CHI SIAMO</h2>
+
+            <a href="info.html">info</a><br>
+            <br>
+            <br>
+        </div>
+        <div class="footer-section">
+            <h2 style="color: black;;" class="footer-title">CONTATTACI</h2>
+
+            <a href="contatti.html">contatti</a><br>
+            <br>
+            <br>
+        </div>
+        <div class="footer-section">
+            <h2 style="color: black;" class="footer-title">FONTI</h2>
+            <a href="Page/bibliografia.html">Bibliografia</a><br>
+            <a href="Page/articoli.html">Articoli</a><br>
+            <a href="Page/crediti.html">Crediti</a><br>
+        </div>
+    </footer>
+</body>
+</html>
